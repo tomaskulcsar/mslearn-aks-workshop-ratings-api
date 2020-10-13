@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: ratings-api
+  name: tomaskulcsarmslearnaksworkshopratingsapi
 spec:
   selector:
-    app: ratings-api
+    app: tomaskulcsarmslearnaksworkshopratingsapi
   ports:
   - protocol: TCP
     port: 80
