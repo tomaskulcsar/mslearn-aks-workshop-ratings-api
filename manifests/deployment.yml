@@ -1,7 +1,7 @@
 apiVersion : apps/v1
 kind: Deployment
 metadata:
-  name: tomaskulcsarmslearnaksworkshopratingsapi 
+  name: tomaskulcsarmslearnaksworkshopratingsapi
 spec:
   replicas: 1
   selector:
@@ -10,32 +10,32 @@ spec:
   template:
     metadata:
       labels:
-        app: tomaskulcsarmslearnaksworkshopratingsapi 
+        app: tomaskulcsarmslearnaksworkshopratingsapi
     spec:
       containers:
-        - name: tomaskulcsarmslearnaksworkshopratingsapi 
+        - name: tomaskulcsarmslearnaksworkshopratingsapi
           image: acr31608.azurecr.io/tomaskulcsarmslearnaksworkshopratingsapi
           imagePullPolicy: Always
           ports:
-          - containerPort: 3000
+            - containerPort: 3000
           env:
-          - name: MONGODB_URI # the application expects to find the MongoDB connection details in this environment variable
-            valueFrom:
-              secretKeyRef:
-                name: mongosecret # the name of the Kubernetes secret containing the data
-                key: MONGOCONNECTION # the key inside the Kubernetes secret containing the data
-        resources:
-          requests: # minimum resources required
-            cpu: 250m
-            memory: 64Mi
-          limits: # maximum resources allocated
-            cpu: 500m
-            memory: 256Mi
-        readinessProbe: # is the container ready to receive traffic?
-          httpGet:
-            port: 3000
-            path: /healthz
-        livenessProbe: # is the container healthy?
-          httpGet:
-            port: 3000
-            path: /healthz
+            - name: MONGODB_URI # the application expects to find the MongoDB connection details in this environment variable
+              valueFrom:
+                secretKeyRef:
+                  name: mongosecret # the name of the Kubernetes secret containing the data
+                  key: MONGOCONNECTION # the key inside the Kubernetes secret containing the data
+          resources:
+            requests: # minimum resources required
+              cpu: 250m
+              memory: 64Mi
+            limits: # maximum resources allocated
+              cpu: 500m
+              memory: 256Mi
+          readinessProbe: # is the container ready to receive traffic?
+            httpGet:
+              port: 3000
+              path: /healthz
+          livenessProbe: # is the container healthy?
+            httpGet:
+              port: 3000
+              path: /healthz
