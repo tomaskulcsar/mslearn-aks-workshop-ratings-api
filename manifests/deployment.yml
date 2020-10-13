@@ -1,19 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ratings-api
+  name: tomaskulcsarmslearnaksworkshopratingsapi
 spec:
   selector:
     matchLabels:
-      app: ratings-api
-  template:
+      app: tomaskulcsarmslearnaksworkshopratingsapi
     metadata:
       labels:
-        app: ratings-api # the label for the pods and the deployments
+        app: tomaskulcsarmslearnaksworkshopratingsapi # the label for the pods and the deployments
     spec:
       containers:
-      - name: ratings-api
-        image: <acrname>.azurecr.io/ratings-api:v1 # IMPORTANT: update with your own repository
+      - name: tomaskulcsarmslearnaksworkshopratingsapi
+        image: acr31608.azurecr.io/tomaskulcsarmslearnaksworkshopratingsapi:v1 # IMPORTANT: update with your own repository
         imagePullPolicy: Always
         ports:
         - containerPort: 3000 # the application listens to this port
